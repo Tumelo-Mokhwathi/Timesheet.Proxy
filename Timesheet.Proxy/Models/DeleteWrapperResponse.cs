@@ -10,14 +10,14 @@ namespace Timesheet.Proxy.Models
     {
         public HttpStatusCode code { get; set; }
         public string message { get; set; }
-        public int project { get; set; }
+        public object item { get; set; }
         public string source { get; set; } 
 
-        public DeleteWrapperResponse(HttpStatusCode Code, string Message, int Project, string Source)
+        public DeleteWrapperResponse(HttpStatusCode Code, string Message, object Item, string Source)
         {
             code = Code;
             message = Message;
-            project = Project;
+            item = Item;
             source = Source;
         }
     }

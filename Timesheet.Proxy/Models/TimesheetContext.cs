@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -10,14 +12,18 @@ namespace Timesheet.Proxy.Models
 {
     public class TimesheetContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public TimesheetContext(DbContextOptions<TimesheetContext> options) : base(options)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                                    .AddJsonFile("appsettings.json");
-            var configuration = builder.Build();
-            optionsBuilder.UseSqlServer(configuration["ConnectionStrings:ApplicationConnection"]);
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+        //                                            .AddJsonFile("appsettings.json");
+        //    var configuration = builder.Build();
+        //    optionsBuilder.UseSqlServer(configuration["ConnectionStrings:ApplicationConnection"]);
+        //}
 
-        public DbSet<AllProjects> AllProjects { get; set; }
+        public DbSet<Projects> Projects { get; set; } 
+        public DbSet<Timesheets> Timesheets { get; set; }
     }
 }

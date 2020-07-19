@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Timesheet.Proxy.Models
 {
-    public class GetProjectsWrapperResponse
+    public class GetTimesheetsWrapperResponse
     {
         public HttpStatusCode code { get; set; }
-        public Projects[] projects { get; set; }
+        public Timesheets[] timesheets { get; set; }
         public string source { get; set; }
 
-        public GetProjectsWrapperResponse(HttpStatusCode Code, Projects[] Projects, string Source)
+        public GetTimesheetsWrapperResponse(HttpStatusCode Code, Timesheets[] Timesheets, string Source)
         {
             code = Code;
-            projects = Projects;
+            timesheets = Timesheets; 
             source = Source;
         }
     }

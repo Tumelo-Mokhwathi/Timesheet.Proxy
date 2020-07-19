@@ -14,6 +14,8 @@ using Newtonsoft.Json.Serialization;
 using Timesheet.Proxy.Services;
 using Timesheet.Proxy.Services.Interfaces;
 using Timesheet.Proxy.Configuration;
+using Timesheet.Proxy.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Timesheet.Proxy
 {
@@ -48,7 +50,9 @@ namespace Timesheet.Proxy
                     (resolver as DefaultContractResolver).NamingStrategy = null;
                 }
             });
+            services.AddDbContext<TimesheetContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApplicationConnection")));
             services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<ITimesheetService, TimesheetService>();
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

@@ -7,6 +7,7 @@ namespace Timesheet.Proxy.Constants
 {
     public class Source
     {
-        public const string TimesheetProjectsPrefixName = "timesheet.source.proxy";
+        public const string ProjectsPrefixName = "projects.source.proxy";
+        public const string TimesheetPrefixName = "timesheets.source.proxy";
     }
 }

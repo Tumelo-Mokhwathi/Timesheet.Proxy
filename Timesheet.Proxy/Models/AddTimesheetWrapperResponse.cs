@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Timesheet.Proxy.Models
 {
-    public class CreateWrapperResponse
+    public class AddTimesheetWrapperResponse
     {
         public HttpStatusCode code { get; set; }
         public string message { get; set; }
-        public object item { get; set; }
+        public object timesheet { get; set; }
         public string source { get; set; }
 
-        public CreateWrapperResponse(HttpStatusCode Code, string Message, object Item, string Source) 
+        public AddTimesheetWrapperResponse(HttpStatusCode Code, string Message, object Timesheet, string Source)
         {
             code = Code;
             message = Message;
-            item = Item;
+            timesheet = Timesheet;
             source = Source;
-        } 
+        }
     }
 }
